@@ -10,12 +10,13 @@ export class ThankyouComponent implements OnInit {
   public orderid;
 
 
-public showDialog;
-  constructor() {  this.orderid = JSON.stringify(localStorage.getItem("orderid"));
-}
+  public showDialog;
+  constructor() {
+  this.orderid = localStorage.getItem("orderid");
+  }
 
   ngOnInit() {
-  
+
   }
 
 }
