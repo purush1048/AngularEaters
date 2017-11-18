@@ -5,6 +5,7 @@
        <h4> {{pageTitle}} </h4>
     </div>
     <div class='panel-body'>
+            <div class="main-menu-pages"></div>
         <div class='row'>
             <div class='col-md-2'>
                 <h4>Filter by:</h4>
@@ -27,7 +28,7 @@
                 <thead>
                     <tr>
                         <th>
-                            <button class='btn btn-primary'
+                            <button class='btn btn-info btn-primary'
                                 (click)='toggleImage()'>
                                 {{showImage ? 'Hide' : 'Show'}} Image
                             </button>
@@ -40,7 +41,7 @@
                 <tbody>
                     <tr *ngFor='let product of filteredProducts'>
                         <td>
-                            <img *ngIf='showImage'
+                            <img class="image"*ngIf='showImage'
                                 [src]='product.imageUrl'
                                 [title]='product.productName'
                                 [style.width.px]='imageWidth'
@@ -49,7 +50,7 @@
                         <td><h4>{{ product.productName }}</h4>
                         <p>{{ product.description }}</td>
                         <td>{{ product.price | currency:'USD':true:'1.2-2'}}</td>
-                        <td><button type="button" class="btn btn-primary" (click)="addItemToCart(product)">Add To Cart</button></td>
+                        <td><button type="button" class="btn btn-info btn-primary" (click)="addItemToCart(product)">Add To Cart</button></td>
                     </tr>
                 </tbody>
             </table>

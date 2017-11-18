@@ -1,5 +1,6 @@
 <div align="center" style="border:10px" class="med_font">
     <br>
+    <div class="main-menu-pages"></div>
     <label>New Card</label>
     <input name="options" ng-control="options" type="radio" [value]="1" [(ngModel)]="option" id="newcard">
     <label>Existing Card</label>
@@ -11,9 +12,9 @@
         <div class="row">
             <div class="col-12 col-sm-8 col-md-6 col-lg-4 mx-auto mx-auto">
                 <div id="pay-invoice" class="card">
-                    <div class="card-body">
+                    <div class="card-body payment-form">
                         <div class="card-title">
-                            <h3 class="text-center">Pay</h3>
+                            <h3 class="text-center">Payment Details</h3>
                         </div>
                         <hr>
                         <form action=""  #myForm="ngForm" method="post" novalidate="novalidate">
@@ -33,11 +34,13 @@
                                     </li>
                                 </ul>
                             </div>
-                            <div class="form-group" >
+                            <div class="form-group">
                                 <label for="cc-payment" class="control-label mb-1">Payment amount</label>
+
                                 <input id="cc-pament" name="cc-payment" type="text" [value]="total" readonly class="form-control" aria-required="true" aria-invalid="false" value="100.00" required>
+
                             </div>
-                            <div class="form-group has-success">
+                            <div class="form-group">
                                 <label for="cc-name" class="control-label mb-1">Name on card</label>
                                 <input id="cc-name" name="cc-name" required [(ngModel)]="name" type="text" class="form-control cc-name valid" data-val="true" data-val-required="Please enter the name on card"
                                     autocomplete="cc-name" aria-required="true" aria-invalid="false" aria-describedby="cc-name-error">
@@ -49,7 +52,7 @@
                                     data-val-required="Please enter the card number" data-val-cc-number="Please enter a valid card number"
                                     autocomplete="cc-number" >
                                 <h6>
-                                    <font  color='Green'>Use Capital One Card and get 1.5% cash back </font>
+                                    <font color='Green'>Use Capital One Card and get 1.5% cash back </font>
                                 </h6>
                                 <span class="help-block" data-valmsg-for="cc-number" data-valmsg-replace="true"></span>
                             </div>
@@ -68,7 +71,7 @@
                                         <input id="x_card_code" name="x_card_code" required [(ngModel)]="seccode" type="tel" class="form-control cc-cvc" value="" data-val="true" data-val-required="Please enter the security code"
                                             data-val-cc-cvc="Please enter a valid security code" autocomplete="off">
                                 </div>
-                                </div>
+            </div>
                             </div>
                             <div class="form-group">
                                 <label for="x_zip" class="control-label mb-1">Zip code</label>
@@ -103,9 +106,9 @@
         <div class="row">
             <div class="col-12 col-sm-8 col-md-6 col-lg-4 mx-auto">
                 <div id="pay-invoice" class="card">
-                    <div class="card-body">
-                        <div class="card-title">
-                            <h3 class="text-center">Pay Invoice</h3>
+                    <div class="card-body payment-form">
+                        <div class="card-title ">
+                            <h3 class="text-center">Payment Details</h3>
                         </div>
                         <hr>
                         <form action="" #myForm="ngForm"  method="post" novalidate="novalidate">
@@ -127,12 +130,13 @@
                             </div>
                             <div class="form-group">
                                 <label for="cc-payment" class="control-label mb-1">Payment amount</label>
-                                <input id="cc-pament" name="cc-payment" type="text" readonly [value]="total" class="form-control" aria-required="true" aria-invalid="false" value="100.00">
+                                <input id="cc-pament" name="cc-payment" type="text" readonly [value]="total" class="form-control" aria-required="true" aria-invalid="false"
+                                    value="100.00">
                             </div>
                             <div class="form-group">
                                 <label for="cc-number" class="control-label mb-1">Existing Card number</label>
-                                <input id="cc-number" name="cc-number" type="tel" readonly [value]="existingcard" class="form-control cc-number" value="" data-val="true"
-                                    data-val-required="Please enter the card number" data-val-cc-number="Please enter a valid card number"
+                                <input id="cc-number" name="cc-number" type="tel" readonly [value]="existingcard" class="form-control cc-number" value=""
+                                    data-val="true" data-val-required="Please enter the card number" data-val-cc-number="Please enter a valid card number"
                                     autocomplete="cc-number">
                                 <span class="help-block" data-valmsg-for="cc-number" data-valmsg-replace="true"></span>
                             </div>
@@ -149,7 +153,9 @@
                             <form action="#" onsubmit="if(document.getElementById('agree').checked) { return true; } else { alert('Please indicate that you have read and agree to the Terms and Conditions and Privacy Policy'); return false; }">
                                 <input type="checkbox" checked ng-required="value.length==0" name="checkbox" value="check" id="agree" /> I have read and agree to the <a href="https://www.capitalone.com/legal/terms-conditions/">Terms and Conditions.</a>
                                 <br>
+
                                 <input type="checkbox" name="checkbox" value="check" id="save" ng-required="value.length==0" [(ngModel)]="deletecard"/> Please delete my card information.
+
                                 <br>
                                 <br>
                             </form>
@@ -158,7 +164,7 @@
                                     <input type="button" value="Pay"  [routerLink]="['/thankyou']" (click)='fetch()' [disabled]="!myForm.form.valid" class="btn btn-lg btn-info btn-block">
                                     
 
-            
+                                </a>
                             </div>
                         </form>
                     </div>
