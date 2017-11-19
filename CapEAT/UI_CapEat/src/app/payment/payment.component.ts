@@ -36,7 +36,7 @@ export class PaymentComponent implements OnInit {
    this.sid = localStorage.getItem("sid");
    this.userstatus = localStorage.getItem("userstatus");
    
-   this.existingcard = "************"+localStorage.getItem("existingcard");  
+   this.existingcard = "************"+JSON.stringify(localStorage.getItem("existingcard")).substring(13, 17);  
   if(localStorage.getItem("lunchchef")!==undefined && localStorage.getItem("lunchchef")!== null ){
     this.total = JSON.parse(localStorage.getItem("amount"));    
     this.try.push(JSON.parse(localStorage.getItem("lunchchef")));
