@@ -41,7 +41,9 @@ export class HomeComponent implements OnInit {
 
     this.loginservice.getConnection(this.myParams).subscribe((resp) => {
       this.userstatus = resp.json().status;
+      console.log("status on home page"+this.userstatus);
       this.sid = resp.json().sid;
+      console.log("my SID"+this.sid);
       localStorage.setItem("existingcard", resp.json().cardNum);
       localStorage.setItem("sid", this.sid);
   //    console.log(localStorage.getItem("sid"));

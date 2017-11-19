@@ -1,14 +1,19 @@
-<div *ngIf="this.newuser === 'newuser' ">
+
+<div *ngIf="this.firstuser === 'newuser' ">
         <div class="container-fluid">
+            <br>
+<br>
+<br>
+<br>
                 <h3 class="display-3" id="thanksHeader" style="margin-left: 450px;"><font color="black">You have no order history</font></h3></div>
 </div>
-<div class='panel panel-primary' *ngIf="this.newuser !== 'newuser' ">
+<div class='panel panel-primary' *ngIf="this.firstuser === 'gothistory' ">
     <div class='panel-heading'>
         <div class="container-fluid">
            <br>
            <br>
            <br>
-           <br> 
+           <br>
             <div class="col-md-11">
                 <h4> Order History Details </h4>
             </div>
@@ -41,10 +46,10 @@
                     <tr *ngFor='let order of orderHistory'>
                         <td>{{order.orderId}}</td>
                         <td>
-                            <h4>{{ order.itemName }}</h4>
-                            <p>{{ order.itemDesc }}</td>
-                        <td>{{ order.itemPrice | currency:'USD':true:'1.2-2'}}</td>
-                        <td>{{order.orderDate}}
+                            <h4>{{ order.productName }}</h4>
+                            <p>{{ order.description }}</td>
+                        <td>{{ order.price | currency:'USD':true:'1.2-2'}}</td>
+                        <td>{{order.orderdt}}
                             <td><button type="button" class="btn btn-info btn-primary" (click)="addItemToCart(order)">Add To Cart</button></td>
                     </tr>
                 </tbody>
