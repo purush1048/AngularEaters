@@ -14,7 +14,7 @@ import { ActivatedRoute } from '@angular/router';
 
 
 export class AddCartComponent {
-  serviceName: string;
+  public serviceName: string;
   public sub: any;
   public service: any;
   public continueShopping: string;
@@ -47,31 +47,34 @@ export class AddCartComponent {
       this.userStatus = localStorage.getItem("userstatus");
   //    console.log(this.userStatus);
     this.value = 0;
+
     this.sub = this.route.params.subscribe(params => {
       this.serviceName = params['serviceName'];
       if (this.serviceName === 'menu') {
         this.arr = menuService.cartItems;
         this.service = menuService;
         this.continueShopping = '/menu';
+        sessionStorage.setItem("addcartarr", JSON.stringify(this.arr));
       }else if (this.serviceName === 'history') {
         this.arr = historyService.cartItems;
+        sessionStorage.setItem("addcartarr", JSON.stringify(historyService.cartItems));
+        console.log(JSON.parse(sessionStorage.getItem("addcartarr")));
+
         this.service = historyService;
         this.continueShopping = '/history';
       historyService.cartItems.forEach((item: HistoryItem) => {
-        item['productName'] = item.itemName;
-        item['orderCount'] = item.orderQuantity;
-        item['spice'] = item.spiceLevel;
-        item['price'] = item.itemPrice;
+        item['productName'] = item.productName;
+        item['orderCount'] = item.orderCount;
+        item['price'] = item.price;
   }
 );
-
       } else {
         this.arr = bewellService.cartItems;
         this.service = bewellService;
         this.continueShopping = '/bewell';
+        sessionStorage.setItem("addcartarr", JSON.stringify(this.arr));
       }
     });
-
   }
 }
 

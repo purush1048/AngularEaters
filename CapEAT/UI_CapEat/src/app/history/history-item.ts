@@ -1,10 +1,10 @@
 export interface HistoryItem {
     orderId: number;
-	orderDate: Date;
-	orderQuantity: number;
-	spiceLevel: number;
-	itemName: string;
-	itemDesc: string;
-	itemPrice: string;
-	orderLocation: string;
+	orderdt: Date;
+	orderCount: number;
+	spice: number;
+	productName: string;
+	description: string;
+	price: string;
+	location: string;
 }

@@ -20,13 +20,13 @@ export class HistoryService {
         if (!item) {
             item = historyItem;
             this.cartItems.push(item);
-            item.orderQuantity = 0;
+            item.orderCount = 0;
         }
-        item.orderQuantity += 1;
+        item.orderCount += 1;
     }
     getTotalCartItems() {
         let cnt = 0;
-        this.cartItems.forEach((item) => cnt += item.orderQuantity);
+        this.cartItems.forEach((item) => cnt += item.orderCount);
         return cnt;
     }
 }

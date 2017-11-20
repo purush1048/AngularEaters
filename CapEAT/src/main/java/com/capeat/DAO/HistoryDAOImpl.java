@@ -29,13 +29,11 @@ public class HistoryDAOImpl implements HistoryDAO {
 		List<History> list = jdbcTemplate.query(sql, new RowMapper<History>(){
             public History mapRow(ResultSet rs, int nRows) throws SQLException { 
             	History temp = new History();
-
+            	temp.setProductName(rs.getString("productname"));
+            	temp.setPrice(rs.getInt("price"));
+            	temp.setOrderdt(rs.getDate("orderdt"));
+            	temp.setOrderCount(rs.getInt("ordercount"));
             	temp.setOrderId(rs.getInt("orderid"));
-            	temp.setItemName(rs.getString("productname"));
-            	temp.setItemPrice(rs.getString("price"));
-            	temp.setOrderLocation(rs.getString("location"));
-            	temp.setOrderDate(rs.getDate("orderdt"));
-            	temp.setSpiceLevel(rs.getInt("spice"));
             	return temp;
 			}
 		});
