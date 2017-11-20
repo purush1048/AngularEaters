@@ -30,10 +30,11 @@ public class HistoryDAOImpl implements HistoryDAO {
             public History mapRow(ResultSet rs, int nRows) throws SQLException { 
             	History temp = new History();
             	temp.setProductName(rs.getString("productname"));
-            	temp.setPrice(rs.getInt("price"));
+            	temp.setPrice(rs.getDouble("price"));
             	temp.setOrderdt(rs.getDate("orderdt"));
             	temp.setOrderCount(rs.getInt("ordercount"));
             	temp.setOrderId(rs.getInt("orderid"));
+            	temp.setLocation(rs.getString("location"));
             	return temp;
 			}
 		});
