@@ -32,7 +32,7 @@ public class LandingController {
 	CreditCard newCd = new CreditCard();
 
 	@RequestMapping(value = "/signin", method = RequestMethod.POST)
-	public @ResponseBody CreditCard listAll(@RequestBody UserSignIn user) {
+	public @ResponseBody CreditCard showCredit(@RequestBody UserSignIn user) {
 	//	System.out.println("signing controller");
 		CreditCard cd = userDAO.authentication(user);		
 	//	System.out.println(cd.getSid());
@@ -40,7 +40,7 @@ public class LandingController {
 	}
 
 	@RequestMapping(value = "/home", method = RequestMethod.GET)
-	public String listAll() {
+	public String home() {
 	//	System.out.println("Landing controller");
 		return "/static/dist/index.html";
 	}
@@ -55,7 +55,11 @@ public class LandingController {
 	}
 	
 	@RequestMapping(value="/makepayment",method=RequestMethod.POST)
-	   public @ResponseBody  int listAll(@RequestBody Wrapper w){
+	   public @ResponseBody  int makepayment(@RequestBody Wrapper w){
+		System.out.println(w.getOrder());
+		System.out.println(w.getCreditCard());
+		System.out.println(w.getAmount());
+		System.out.println(w.getSid());
 		List<Order> credit = new ArrayList<>();
 		int orderid = orderDAO.insertorder(w.getOrder(), Double.parseDouble(w.getAmount()), Integer.parseInt(w.getSid()));
         if(w.getCreditCard().getDecision().equals("insert") || w.getCreditCard().getDecision().equals("update")) {
